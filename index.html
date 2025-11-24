@@ -4,22 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>guidetech株式会社 | 大阪大学工学部発 Web制作ベンチャー</title>
-    <meta name="description" content="大阪大学工学部発。5万円で完結する、対面ヒアリング重視の高品質Web制作サービス。文章作成からサーバー設定まで丸投げOK。">
+    <meta name="description" content="大阪大学工学部発。5万円で完結する、対面ヒアリング重視の高品質Web制作サービス。">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
     
     <style>
         /* ====================================
-           Core Design System
+           Core Settings
            ==================================== */
         :root {
-            --primary: #0044cc;        /* 信頼のブルー */
+            --primary: #0044cc;
             --primary-dark: #002a80;
-            --accent: #ffd700;         /* ゴールド（高級感・アクセント） */
+            --accent: #ffd700;
             --bg-body: #f4f7fa;
             --text-main: #222;
-            --text-light: #666;
             --font-jp: 'Noto Sans JP', sans-serif;
             --font-en: 'Montserrat', sans-serif;
         }
@@ -32,34 +31,21 @@
             background: var(--bg-body);
             line-height: 1.6;
             overflow-x: hidden;
-            padding-top: 60px; /* ヘッダー固定分の余白 */
+            padding-top: 60px;
         }
 
         a { text-decoration: none; color: inherit; transition: 0.3s; }
-        a:hover { opacity: 0.8; }
         img { width: 100%; height: auto; display: block; object-fit: cover; }
         ul { list-style: none; }
 
         .container {
             width: 90%;
-            max-width: 1100px;
+            max-width: 1000px; /* 少し引き締める */
             margin: 0 auto;
         }
 
-        /* Badge & Labels */
-        .badge {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            font-size: 0.7rem;
-            padding: 0.2rem 0.6rem;
-            border-radius: 3px;
-            font-weight: bold;
-            letter-spacing: 0.05em;
-        }
-
         /* ====================================
-           Navigation Bar
+           Navigation
            ==================================== */
         .navbar {
             position: fixed;
@@ -81,34 +67,22 @@
             font-weight: 800;
             font-size: 1.2rem;
             color: white;
-            letter-spacing: 0.05em;
         }
         .nav-logo span { color: var(--accent); }
 
-        .nav-menu {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .nav-link {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.85rem;
-            font-weight: 500;
-            letter-spacing: 0.05em;
-        }
-        .nav-link:hover {
-            color: var(--accent);
-        }
+        .nav-menu { display: flex; gap: 1.5rem; }
+        .nav-link { color: rgba(255, 255, 255, 0.8); font-size: 0.85rem; font-weight: 500; }
+        .nav-link:hover { color: var(--accent); }
 
         /* ====================================
-           Hero Section (Impact)
+           Hero Section (Neon City)
            ==================================== */
         .hero {
             position: relative;
-            /* 背景をネオン系のビル群に変更 */
+            /* ネオン系のビル群 */
             background: url('https://images.unsplash.com/photo-1565626424178-37909945612d?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
             color: white;
-            padding: 140px 0 100px; /* ヘッダー分少し下げる */
+            padding: 120px 0 80px;
             text-align: center;
         }
 
@@ -116,8 +90,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            /* ネオンを引き立てる少し暗めの青紫フィルター */
-            background: linear-gradient(to bottom, rgba(0, 10, 30, 0.8), rgba(0, 20, 60, 0.9));
+            background: linear-gradient(to bottom, rgba(0, 10, 30, 0.7), rgba(0, 20, 60, 0.9));
         }
 
         .hero__content { position: relative; z-index: 10; }
@@ -126,158 +99,135 @@
             background: linear-gradient(90deg, #ffd700, #ffaa00);
             color: #000;
             font-weight: 800;
-            padding: 0.4rem 1.5rem;
+            padding: 0.3rem 1.2rem;
             border-radius: 50px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             display: inline-block;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
+            margin-bottom: 1rem;
         }
 
         .hero__title {
-            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-size: clamp(2rem, 5vw, 3.5rem);
             font-weight: 900;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
             line-height: 1.2;
-            text-shadow: 0 0 20px rgba(0, 68, 204, 0.5);
-            letter-spacing: -0.02em;
+            text-shadow: 0 0 20px rgba(0, 68, 204, 0.8);
         }
 
-        /* Price Box */
         .price-box {
             background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 215, 0, 0.3); /* アクセントカラーの枠線 */
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 215, 0, 0.4);
             display: inline-block;
-            padding: 1.5rem 3rem;
+            padding: 1rem 3rem;
             border-radius: 8px;
-            margin-bottom: 2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 1.5rem;
         }
 
-        .price-label { font-size: 1rem; font-weight: bold; opacity: 0.9; margin-bottom: 0.2rem; display: block; }
         .price-val {
             font-family: var(--font-en);
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-weight: 800;
             line-height: 1;
             color: var(--accent);
-            text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
         }
-        .price-sub { font-size: 0.9rem; color: #fff; font-weight: normal; margin-left: 5px; }
-        .price-note { display: block; font-size: 0.75rem; margin-top: 8px; opacity: 0.8; }
+        .price-val span { font-size: 1rem; color: #fff; }
 
         /* ====================================
-           Features Grid
+           CEO Section (NEW: Full Width Horizontal)
            ==================================== */
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1rem;
-            margin-top: -60px;
-            position: relative;
-            z-index: 20;
-            margin-bottom: 3rem;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 6px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-            border-top: 3px solid var(--primary);
-            text-align: left;
-        }
-
-        .feature-icon { font-size: 1.8rem; margin-bottom: 0.8rem; display: block; }
-        .feature-title { font-size: 1.1rem; font-weight: bold; margin-bottom: 0.4rem; color: var(--primary-dark); }
-        .feature-text { font-size: 0.85rem; color: var(--text-light); line-height: 1.5; }
-
-        /* ====================================
-           Main Content Layout
-           ==================================== */
-        .main-grid {
-            display: grid;
-            /* 左カラムを少し広げて横長レイアウトに対応 */
-            grid-template-columns: 450px 1fr;
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-
-        /* CEO Profile (横長・密集レイアウトに変更) */
         .ceo-section {
             background: white;
-            padding: 1.5rem; /* 余白を詰める */
             border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            /* 横並びにするためのFlex設定 */
-            display: flex;
-            gap: 1.5rem;
-            align-items: flex-start;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            margin: -50px auto 3rem; /* ヒーローに少し被せる */
+            position: relative;
+            z-index: 20;
+            display: flex; /* 横並びレイアウト */
+            overflow: hidden;
+            border: 1px solid #eee;
         }
 
-        /* 写真コンテナ */
         .ceo-visual {
-            flex: 0 0 180px; /* 幅を少し広げる */
+            width: 300px; /* 写真の幅をしっかり確保 */
+            flex-shrink: 0;
+            position: relative;
         }
+        
         .ceo-img {
             width: 100%;
-            aspect-ratio: 4/3; /* 横長に変更 */
-            border-radius: 4px;
+            height: 100%;
             object-fit: cover;
-            filter: contrast(1.1);
-            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-            /* 画像の位置調整が必要な場合 */
-            /* object-position: top; */ 
+            /* 画像の位置調整 */
+            object-position: center top; 
         }
 
-        /* 情報コンテナ（密集させる） */
-        .ceo-info-box {
-            flex: 1;
+        .ceo-content {
+            padding: 2rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
 
-        .ceo-name { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.1rem; line-height: 1.2; }
-        .ceo-role { font-size: 0.75rem; color: var(--primary); font-weight: bold; display: block; margin-bottom: 0.8rem; }
-        
-        .ceo-msg {
-            font-size: 0.85rem; /* フォントを小さく */
-            line-height: 1.5; /* 行間を詰める */
-            text-align: justify;
-            margin-bottom: 0.8rem;
-            color: #444;
-        }
-        .ceo-msg p { margin-bottom: 0.5rem; } /* 段落間も詰める */
-        .ceo-msg strong { color: var(--primary-dark); }
-        
-        .ceo-univ {
-            font-size: 0.7rem;
-            color: #888;
-            border-top: 1px solid #eee;
-            padding-top: 8px;
-            font-weight: 500;
-        }
-        
-        /* Right Column Areas */
-        .content-area {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
+        .ceo-badge {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            font-size: 0.65rem;
+            padding: 0.1rem 0.6rem;
+            border-radius: 3px;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            align-self: flex-start;
         }
 
-        .section-title {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            color: var(--primary-dark);
+        .ceo-header {
             display: flex;
-            align-items: center;
+            align-items: baseline;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 0.5rem;
         }
-        .section-title span { margin-right: 8px; font-size: 1.2em; }
+
+        .ceo-name { font-size: 1.8rem; font-weight: 700; line-height: 1; }
+        .ceo-role { font-size: 0.8rem; color: var(--primary); font-weight: bold; }
+        .ceo-univ { font-size: 0.75rem; color: #888; margin-left: auto; font-weight: 500; }
+
+        .ceo-msg {
+            font-size: 0.9rem;
+            line-height: 1.8;
+            color: #444;
+            text-align: justify;
+        }
+        .ceo-msg p { margin-bottom: 0.5rem; }
+        .ceo-msg p:last-child { margin-bottom: 0; }
+
+
+        /* ====================================
+           Features & Plan
+           ==================================== */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 6px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-top: 3px solid var(--primary);
+        }
+        .feature-title { font-weight: bold; color: var(--primary-dark); margin-bottom: 0.5rem; display: flex; align-items: center; }
+        .feature-text { font-size: 0.85rem; color: #666; line-height: 1.5; }
 
         /* Plan Table */
+        .section-header { font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--primary-dark); border-left: 5px solid var(--accent); padding-left: 10px; }
+
         .plan-table {
             width: 100%;
             background: white;
@@ -285,96 +235,81 @@
             box-shadow: 0 3px 10px rgba(0,0,0,0.05);
             border-radius: 6px;
             overflow: hidden;
+            margin-bottom: 3rem;
+        }
+        .plan-table th { background: var(--primary-dark); color: white; padding: 1rem; text-align: left; width: 25%; }
+        .plan-table td { padding: 1rem; border-bottom: 1px solid #eee; font-size: 0.95rem; }
+        .check { color: var(--primary); font-weight: bold; margin-right: 5px; }
+
+        /* Flow & Members (2 Columns) */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .flow-list { counter-reset: flow; }
+        .flow-item {
+            position: relative;
+            padding-left: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .flow-item::before {
+            counter-increment: flow;
+            content: counter(flow);
+            position: absolute;
+            left: 0; top: 0;
+            width: 1.8rem; height: 1.8rem;
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            line-height: 1.8rem;
+            border-radius: 50%;
+            font-weight: bold;
             font-size: 0.9rem;
         }
-        .plan-table th { background: var(--primary-dark); color: white; padding: 0.8rem 1rem; text-align: left; width: 30%; font-weight: 500; }
-        .plan-table td { padding: 0.8rem 1rem; border-bottom: 1px solid #eee; }
-        .check-mark { color: var(--primary); font-weight: bold; margin-right: 5px; }
+        .flow-title { font-weight: bold; display: block; }
+        .flow-desc { font-size: 0.85rem; color: #666; }
 
-        /* Members Grid */
-        .members-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 0.8rem;
-        }
-        .member-card {
-            background: white;
-            padding: 1rem 0.5rem;
-            text-align: center;
-            border-radius: 6px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            border: 1px solid #eee;
-        }
-        .member-img { width: 60px; height: 60px; border-radius: 50%; margin: 0 auto 8px; border: 2px solid #f0f0f0; }
-        .member-name { font-size: 0.85rem; font-weight: bold; margin-bottom: 2px; }
-        .member-role { font-size: 0.65rem; color: var(--primary); font-weight: bold; display: block; margin-bottom: 5px; }
-        .member-univ { font-size: 0.6rem; color: #999; border-top: 1px solid #f4f4f4; padding-top: 4px; }
-
-        /* Flow */
-        .flow-steps {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 0.8rem;
-        }
-        .step { background: white; padding: 0.8rem; border-radius: 4px; text-align: center; border: 1px solid #eee; }
-        .step-num { display: block; font-family: var(--font-en); font-weight: 800; color: var(--primary); font-size: 1.1rem; margin-bottom: 0.3rem; }
-        .step-title { font-weight: bold; font-size: 0.85rem; margin-bottom: 0.3rem; }
-        .step-desc { font-size: 0.7rem; color: #666; line-height: 1.3; }
-
-        /* FAQ & Legal */
-        .faq-box { background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid #eee; }
-        .faq-item { margin-bottom: 1rem; border-bottom: 1px solid #f4f4f4; padding-bottom: 0.8rem; }
-        .faq-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-        .faq-q { font-weight: bold; color: var(--primary-dark); margin-bottom: 0.3rem; display: flex; align-items: center; font-size: 0.9rem; }
-        .faq-q::before { content: 'Q.'; margin-right: 8px; color: var(--accent); font-weight: 800; }
-        .faq-a { padding-left: 1.5rem; font-size: 0.85rem; color: var(--text-light); line-height: 1.5; }
-
-        .legal-box { font-size: 0.75rem; color: #777; background: #eef2f6; padding: 1.5rem; border-radius: 6px; }
-        .legal-row { display: flex; margin-bottom: 0.4rem; }
-        .legal-head { width: 110px; font-weight: bold; color: #555; }
+        /* Members */
+        .members-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+        .member-card { background: white; padding: 0.8rem; border-radius: 4px; border: 1px solid #eee; text-align: center; }
+        .member-img { width: 50px; height: 50px; border-radius: 50%; margin: 0 auto 5px; background: #eee; }
+        .member-name { font-size: 0.85rem; font-weight: bold; }
+        .member-role { font-size: 0.65rem; color: var(--primary); font-weight: bold; }
 
         /* CTA */
         .cta-section {
             background: linear-gradient(135deg, var(--primary-dark), #001a50);
             color: white;
             text-align: center;
-            padding: 3rem 1rem;
+            padding: 3rem;
             border-radius: 12px;
-            margin-top: 3rem;
-            box-shadow: 0 15px 30px rgba(0, 42, 128, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 42, 128, 0.3);
         }
         .cta-btn {
             display: inline-block;
             background: var(--accent);
             color: #000;
-            padding: 1rem 2.5rem;
+            padding: 1rem 3rem;
             border-radius: 50px;
             font-weight: 800;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             margin-top: 1.5rem;
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
-            transition: transform 0.2s;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
         }
-        .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5); }
 
         /* Mobile */
-        @media (max-width: 900px) {
-            .navbar { padding: 0.8rem 1rem; }
-            .nav-menu { display: none; /* スマホでは一旦非表示（要ハンバーガーメニュー）*/ }
-            .hero { padding: 100px 0 80px; }
+        @media (max-width: 800px) {
+            .navbar .nav-menu { display: none; }
+            .ceo-section { flex-direction: column; margin-top: -20px; }
+            .ceo-visual { width: 100%; height: 250px; }
+            .ceo-header { flex-direction: column; gap: 0.2rem; }
+            .ceo-univ { margin-left: 0; margin-top: 0.5rem; font-size: 0.7rem; }
+            .features { grid-template-columns: 1fr; }
+            .info-grid { grid-template-columns: 1fr; }
             .hero__title { font-size: 2.2rem; }
-            .price-box { padding: 1.5rem; width: 100%; }
-            .price-val { font-size: 3rem; }
-            
-            /* スマホでのレイアウト調整 */
-            .main-grid { grid-template-columns: 1fr; }
-            .ceo-section { flex-direction: column; } /* スマホでは縦並びに戻す */
-            .ceo-visual { flex: auto; width: 100%; max-width: 250px; margin: 0 auto 1rem; }
-            .ceo-img { aspect-ratio: 3/4; } /* スマホでは縦長に戻す */
-            
-            .members-grid { grid-template-columns: repeat(2, 1fr); }
-            .flow-steps { grid-template-columns: 1fr; gap: 0.5rem; }
-            .plan-table th, .plan-table td { padding: 0.6rem 0.8rem; }
         }
     </style>
 </head>
@@ -383,11 +318,11 @@
     <nav class="navbar">
         <div class="nav-logo">guide<span>tech</span>.</div>
         <ul class="nav-menu">
-            <li><a href="about.html" class="nav-link">guidetechとは</a></li>
-            <li><a href="service.html" class="nav-link">事業内容</a></li>
-            <li><a href="works.html" class="nav-link">支援実績</a></li>
-            <li><a href="news.html" class="nav-link">お知らせ</a></li>
-            <li><a href="blog.html" class="nav-link">ブログ</a></li>
+            <li><a href="#" class="nav-link">guidetechとは</a></li>
+            <li><a href="#" class="nav-link">事業内容</a></li>
+            <li><a href="#" class="nav-link">支援実績</a></li>
+            <li><a href="#" class="nav-link">お知らせ</a></li>
+            <li><a href="#" class="nav-link">ブログ</a></li>
         </ul>
     </nav>
 
@@ -397,192 +332,127 @@
             <h1 class="hero__title">
                 「とりあえず」作るなら、
             </h1>
-
             <div class="price-box">
-                <span class="price-label">Webサイト制作 標準パッケージ</span>
-                <span class="price-val">50,000<span class="price-sub">(税込)</span></span>
-                <span class="price-note">※維持費不要・完全売り切りモデル</span>
+                <div style="font-size:0.9rem; margin-bottom:0.5rem; font-weight:bold;">Webサイト制作 標準パッケージ</div>
+                <div class="price-val">50,000<span>(税込)</span></div>
             </div>
-
-            <p style="font-size: 1rem; opacity: 0.9; font-weight: 500; letter-spacing: 0.05em;">
-                対面ヒアリング × 阪大工学部の技術力。<br>
-                文章作成もサーバー設定も、すべて丸投げで完成します。
-            </p>
+            <p>対面ヒアリング × 阪大工学部の技術力。<br>文章作成もサーバー設定も、すべて丸投げで完成。</p>
         </div>
     </header>
 
     <div class="container">
-        <div class="features">
-            <div class="feature-card">
-                <span class="feature-icon">🤝</span>
-                <h3 class="feature-title">対面ヒアリング重視</h3>
-                <p class="feature-text">格安制作にありがちな「チャットのみ」は行いません。大阪・兵庫エリアなら直接お伺いし、熱量をそのままサイトに反映します。</p>
+        
+        <div class="ceo-section">
+            <div class="ceo-visual">
+                <img src="ceo.jpg" alt="CEO Photo" class="ceo-img">
             </div>
-            <div class="feature-card">
-                <span class="feature-icon">📝</span>
-                <h3 class="feature-title">文章・構成もお任せ</h3>
-                <p class="feature-text">「何を書けばいいかわからない」でも大丈夫です。ヒアリングを元に、論理的で伝わる文章を私たちが作成します。</p>
-            </div>
-            <div class="feature-card">
-                <span class="feature-icon">🎁</span>
-                <h3 class="feature-title">安心の売り切り型</h3>
-                <p class="feature-text">完成後の月額管理費は0円。納品時にすべての権限をお渡ししますので、ご自身で自由に運用いただけます。</p>
+            <div class="ceo-content">
+                <span class="ceo-badge">REPRESENTATIVE</span>
+                <div class="ceo-header">
+                    <div class="ceo-name">中嶋 〇〇</div>
+                    <span class="ceo-role">代表取締役 CEO / Lead Engineer</span>
+                    <span class="ceo-univ">2025年 大阪大学 工学部 応用理工学科 卒業予定</span>
+                </div>
+                <div class="ceo-msg">
+                    <p><strong>「顔の見える距離で、技術を届けたい」</strong></p>
+                    <p>Web制作業界は今、「高額なコンサル」か「顔も見えない格安業者」の二極化が進んでいます。しかし、本当に必要なのは「安心して任せられる、身近なプロフェッショナル」ではないでしょうか。</p>
+                    <p>私たちは大阪大学工学部でシステムと論理を学ぶ学生チームです。工学的なアプローチで制作工程を効率化することで、コストを抑えつつ、対面でのコミュニケーションという「人」の部分に時間を割くモデルを実現しました。5万円という価格は安売りではありません。「まずは作ってみたい」という挑戦のハードルを下げるための、私たちの戦略的価格です。</p>
+                </div>
             </div>
         </div>
 
-        <div class="main-grid">
-            
-            <aside class="ceo-section">
-                <div class="ceo-visual">
-                    <img src="image_1.png" alt="CEO" class="ceo-img">
-                </div>
-                
-                <div class="ceo-info-box">
-                    <span class="badge" style="margin-bottom: 0.5rem; align-self: flex-start;">REPRESENTATIVE</span>
-                    <h2 class="ceo-name">中嶋 〇〇</h2>
-                    <span class="ceo-role">代表取締役 CEO / Lead Engineer</span>
-                    
-                    <div class="ceo-msg">
-                        <p><strong>「顔の見える距離で、技術を届けたい」</strong></p>
-                        <p>
-                            Web制作業界は今、「高額なコンサル」か「顔も見えない格安業者」の二極化が進んでいます。しかし、本当に必要なのは「安心して任せられる、身近なプロフェッショナル」ではないでしょうか。
-                        </p>
-                        <p>
-                            私たちは大阪大学工学部でシステムと論理を学ぶ学生チームです。工学的なアプローチで制作工程を効率化することで、コストを抑えつつ、対面でのコミュニケーションという「人」の部分に時間を割くモデルを実現しました。
-                        </p>
-                        <p style="margin-bottom: 0;">
-                            5万円という価格は安売りではありません。「まずは作ってみたい」という挑戦のハードルを下げるための、私たちの戦略的価格です。
-                        </p>
-                    </div>
-                    <div class="ceo-univ">
-                        2025年 大阪大学 工学部 応用理工学科 卒業予定
-                    </div>
-                </div>
-            </aside>
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-title">🤝 対面ヒアリング重視</div>
+                <div class="feature-text">格安制作にありがちな「チャットのみ」は行いません。大阪・兵庫エリアなら直接お伺いし、熱量をそのまま反映します。</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-title">📝 文章・構成もお任せ</div>
+                <div class="feature-text">「何を書けばいいかわからない」でも大丈夫です。ヒアリングを元に、論理的で伝わる文章を私たちが作成します。</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-title">🎁 安心の売り切り型</div>
+                <div class="feature-text">完成後の月額管理費は0円。納品時にすべての権限をお渡ししますので、ご自身で自由に運用いただけます。</div>
+            </div>
+        </div>
 
-            <main class="content-area">
-                
-                <div>
-                    <h2 class="section-title"><span>📦</span>5万円パッケージに含まれるもの</h2>
-                    <table class="plan-table">
-                        <tr>
-                            <th>ページ構成</th>
-                            <td><span class="check-mark">✔</span>TOP + 下層3ページ程度（会社概要・事業案内等）</td>
-                        </tr>
-                        <tr>
-                            <th>機能実装</th>
-                            <td><span class="check-mark">✔</span>お問い合わせフォーム、スマホ対応（レスポンシブ）</td>
-                        </tr>
-                        <tr>
-                            <th>原稿作成</th>
-                            <td><span class="check-mark">✔</span><strong>当社にてライティング代行</strong>（丸投げOK）</td>
-                        </tr>
-                        <tr>
-                            <th>インフラ設定</th>
-                            <td><span class="check-mark">✔</span>ドメイン・サーバー取得サポート・設定代行</td>
-                        </tr>
-                        <tr>
-                            <th>修正回数</th>
-                            <td><span class="check-mark">✔</span>デザイン案提出後、2回まで無料対応</td>
-                        </tr>
-                        <tr>
-                            <th>SEO対策</th>
-                            <td><span style="color:#999; font-size:0.8rem;">✕ 本格的なコンサルは含みません（基本設定のみ）</span></td>
-                        </tr>
-                    </table>
-                </div>
+        <h2 class="section-header">5万円パッケージ内容</h2>
+        <table class="plan-table">
+            <tr>
+                <th>ページ構成</th>
+                <td><span class="check">✔</span>TOP + 下層3ページ程度（会社概要・事業案内等）</td>
+            </tr>
+            <tr>
+                <th>機能実装</th>
+                <td><span class="check">✔</span>お問い合わせフォーム、スマホ対応（レスポンシブ）</td>
+            </tr>
+            <tr>
+                <th>原稿作成</th>
+                <td><span class="check">✔</span><strong>当社にてライティング代行</strong>（丸投げOK）</td>
+            </tr>
+            <tr>
+                <th>インフラ</th>
+                <td><span class="check">✔</span>ドメイン・サーバー取得サポート・設定代行</td>
+            </tr>
+        </table>
 
-                <div>
-                    <h2 class="section-title"><span>🚀</span>納品までの流れ</h2>
-                    <div class="flow-steps">
-                        <div class="step">
-                            <span class="step-num">01</span>
-                            <div class="step-title">お問い合わせ</div>
-                            <div class="step-desc">フォームよりご連絡ください</div>
-                        </div>
-                        <div class="step">
-                            <span class="step-num">02</span>
-                            <div class="step-title">対面ヒアリング</div>
-                            <div class="step-desc"><strong>大阪近郊にて直接</strong>伺います</div>
-                        </div>
-                        <div class="step">
-                            <span class="step-num">03</span>
-                            <div class="step-title">ご入金・着手</div>
-                            <div class="step-desc">銀行振込（前払い）にて開始</div>
-                        </div>
-                        <div class="step">
-                            <span class="step-num">04</span>
-                            <div class="step-title">制作・確認</div>
-                            <div class="step-desc">最短1週間でデモを確認</div>
-                        </div>
-                        <div class="step">
-                            <span class="step-num">05</span>
-                            <div class="step-title">納品</div>
-                            <div class="step-desc">サーバーへアップし完了</div>
-                        </div>
+        <div class="info-grid">
+            <div>
+                <h2 class="section-header">納品までの流れ</h2>
+                <div class="flow-list">
+                    <div class="flow-item">
+                        <span class="flow-title">お問い合わせ</span>
+                        <span class="flow-desc">フォームよりご連絡ください</span>
+                    </div>
+                    <div class="flow-item">
+                        <span class="flow-title">対面ヒアリング</span>
+                        <span class="flow-desc">大阪近郊にて直接伺います</span>
+                    </div>
+                    <div class="flow-item">
+                        <span class="flow-title">ご入金・着手</span>
+                        <span class="flow-desc">銀行振込（前払い）にて開始</span>
+                    </div>
+                    <div class="flow-item">
+                        <span class="flow-title">制作・確認</span>
+                        <span class="flow-desc">最短1週間でデモを確認</span>
+                    </div>
+                    <div class="flow-item">
+                        <span class="flow-title">納品</span>
+                        <span class="flow-desc">サーバーへアップし完了</span>
                     </div>
                 </div>
+            </div>
 
-                <div>
-                    <h2 class="section-title"><span>👥</span>Engineering Team</h2>
-                    <div class="members-grid">
-                        <div class="member-card">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop" alt="Member" class="member-img">
-                            <div class="member-name">田中 健太</div>
-                            <span class="member-role">Frontend Eng.</span>
-                            <div class="member-univ">2025年 阪大工学部卒</div>
-                        </div>
-                        <div class="member-card">
-                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop" alt="Member" class="member-img">
-                            <div class="member-name">佐藤 翔</div>
-                            <span class="member-role">Backend Eng.</span>
-                            <div class="member-univ">2025年 阪大工学部卒</div>
-                        </div>
-                        <div class="member-card">
-                            <img src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=200&h=200&fit=crop" alt="Member" class="member-img">
-                            <div class="member-name">鈴木 玲奈</div>
-                            <span class="member-role">UI Designer</span>
-                            <div class="member-univ">2025年 阪大工学部卒</div>
-                        </div>
-                        <div class="member-card">
-                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop" alt="Member" class="member-img">
-                            <div class="member-name">高橋 大輔</div>
-                            <span class="member-role">Infrastructure</span>
-                            <div class="member-univ">2025年 阪大工学部卒</div>
-                        </div>
+            <div>
+                <h2 class="section-header">Engineering Team</h2>
+                <div class="members-grid">
+                    <div class="member-card">
+                        <div class="member-img"></div>
+                        <div class="member-name">田中 健太</div>
+                        <span class="member-role">Frontend</span>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-img"></div>
+                        <div class="member-name">佐藤 翔</div>
+                        <span class="member-role">Backend</span>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-img"></div>
+                        <div class="member-name">鈴木 玲奈</div>
+                        <span class="member-role">UI Design</span>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-img"></div>
+                        <div class="member-name">高橋 大輔</div>
+                        <span class="member-role">Infra</span>
                     </div>
                 </div>
-
-                <div class="faq-box">
-                    <h2 class="section-title"><span>❓</span>よくある質問</h2>
-                    <div class="faq-item">
-                        <div class="faq-q">別途かかる費用はありますか？</div>
-                        <div class="faq-a">ホームページの住所となる「ドメイン代」と「サーバー代」（年間数千円〜1万円程度）はお客様の実費負担となります。取得手続きは私たちが無料で代行いたします。</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-q">写真や文章を用意できません。</div>
-                        <div class="faq-a">ご安心ください。ヒアリング内容を元に私たちが文章を作成します。写真は高品質なフリー素材をご用意いたします。</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-q">納品後の修正はできますか？</div>
-                        <div class="faq-a">本サービスは「売り切り型」のため、納品後の修正は基本的にお客様ご自身で行っていただきます。テキスト修正などの軽微な作業は都度ご相談ください（有償となる場合があります）。</div>
-                    </div>
-                </div>
-
-                <div class="legal-box">
-                    <div class="legal-row"><div class="legal-head">屋号</div><div>guidetech株式会社（ガイドテック）</div></div>
-                    <div class="legal-row"><div class="legal-head">所在地</div><div>大阪府吹田市山田丘（大阪大学内）</div></div>
-                    <div class="legal-row"><div class="legal-head">インボイス番号</div><div>T1234567890123（登録予定）</div></div>
-                    <div class="legal-row"><div class="legal-head">事業内容</div><div>Webサイト制作、システム開発</div></div>
-                    <div style="margin-top: 8px; font-size: 0.7rem; opacity: 0.8;">※特定商取引法に基づく表記は契約時に書面にて交付いたします。</div>
-                </div>
-
-            </main>
+            </div>
         </div>
 
         <div class="cta-section">
-            <h2 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 1rem;">まずは「対面」でお話ししませんか？</h2>
-            <p style="font-size: 0.95rem; opacity: 0.9;">売り込みは致しません。あなたのビジネスにHPが必要かどうか、工学的な視点で診断します。</p>
+            <h2 style="font-size: 2rem; font-weight: 800; margin-bottom: 1rem;">まずは「対面」でお話ししませんか？</h2>
+            <p>売り込みは致しません。あなたのビジネスにHPが必要かどうか、工学的な視点で診断します。</p>
             <a href="https://docs.google.com/forms/d/e/xxxxx/viewform" class="cta-btn" target="_blank">無料相談・制作依頼はこちら</a>
         </div>
 
@@ -590,6 +460,5 @@
             &copy; 2025 guidetech Inc. All Rights Reserved.
         </footer>
     </div>
-
 </body>
 </html>
