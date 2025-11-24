@@ -40,7 +40,7 @@
 
         .container {
             width: 90%;
-            max-width: 1000px; /* 少し引き締める */
+            max-width: 1000px;
             margin: 0 auto;
         }
 
@@ -75,12 +75,12 @@
         .nav-link:hover { color: var(--accent); }
 
         /* ====================================
-           Hero Section (Neon City)
+           Hero Section (Neon City - FIXED)
            ==================================== */
         .hero {
             position: relative;
-            /* ネオン系のビル群 */
-            background: url('https://images.unsplash.com/photo-1565626424178-37909945612d?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+            /* 【修正】背景をより鮮明なネオン街の画像に変更 */
+            background: url('https://images.unsplash.com/photo-1545195457-11217fa2d376?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
             color: white;
             padding: 120px 0 80px;
             text-align: center;
@@ -90,7 +90,8 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(to bottom, rgba(0, 10, 30, 0.7), rgba(0, 20, 60, 0.9));
+            /* 【調整】背景が見えやすいようにフィルターの濃度を少し下げました */
+            background: linear-gradient(to bottom, rgba(0, 10, 30, 0.6), rgba(0, 20, 60, 0.8));
         }
 
         .hero__content { position: relative; z-index: 10; }
@@ -135,7 +136,7 @@
         .price-val span { font-size: 1rem; color: #fff; }
 
         /* ====================================
-           CEO Section (NEW: Full Width Horizontal)
+           CEO Section (Full Width Horizontal)
            ==================================== */
         .ceo-section {
             background: white;
@@ -153,14 +154,15 @@
             width: 300px; /* 写真の幅をしっかり確保 */
             flex-shrink: 0;
             position: relative;
+            background: #f0f0f0; /* 画像読み込み前の背景色 */
         }
         
         .ceo-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            /* 画像の位置調整 */
-            object-position: center top; 
+            /* 画像の位置調整（顔が良い位置に来るように） */
+            object-position: center 20%; 
         }
 
         .ceo-content {
@@ -304,7 +306,8 @@
         @media (max-width: 800px) {
             .navbar .nav-menu { display: none; }
             .ceo-section { flex-direction: column; margin-top: -20px; }
-            .ceo-visual { width: 100%; height: 250px; }
+            .ceo-visual { width: 100%; height: 300px; } /* スマホでの写真の高さを調整 */
+            .ceo-img { object-position: center top; }
             .ceo-header { flex-direction: column; gap: 0.2rem; }
             .ceo-univ { margin-left: 0; margin-top: 0.5rem; font-size: 0.7rem; }
             .features { grid-template-columns: 1fr; }
@@ -344,7 +347,7 @@
         
         <div class="ceo-section">
             <div class="ceo-visual">
-                <img src="ceo.jpg" alt="CEO Photo" class="ceo-img">
+                <img src="ceo.jpg" alt="中嶋 〇〇" class="ceo-img">
             </div>
             <div class="ceo-content">
                 <span class="ceo-badge">REPRESENTATIVE</span>
