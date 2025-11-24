@@ -32,9 +32,11 @@
             background: var(--bg-body);
             line-height: 1.6;
             overflow-x: hidden;
+            padding-top: 60px; /* ヘッダー固定分の余白 */
         }
 
         a { text-decoration: none; color: inherit; transition: 0.3s; }
+        a:hover { opacity: 0.8; }
         img { width: 100%; height: auto; display: block; object-fit: cover; }
         ul { list-style: none; }
 
@@ -49,10 +51,53 @@
             display: inline-block;
             background: var(--primary);
             color: white;
-            font-size: 0.75rem;
-            padding: 0.2rem 0.8rem;
-            border-radius: 4px;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 3px;
             font-weight: bold;
+            letter-spacing: 0.05em;
+        }
+
+        /* ====================================
+           Navigation Bar (New!)
+           ==================================== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 15, 40, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 0.8rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-logo {
+            font-family: var(--font-en);
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: white;
+            letter-spacing: 0.05em;
+        }
+        .nav-logo span { color: var(--accent); }
+
+        .nav-menu {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+        }
+        .nav-link:hover {
+            color: var(--accent);
         }
 
         /* ====================================
@@ -60,9 +105,10 @@
            ==================================== */
         .hero {
             position: relative;
-            background: url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+            /* ネオン系のビル群の画像に変更 */
+            background: url('https://images.unsplash.com/photo-1565626424178-37909945612d?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
             color: white;
-            padding: 120px 0 80px;
+            padding: 140px 0 100px; /* ヘッダー分少し下げる */
             text-align: center;
         }
 
@@ -70,7 +116,8 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: rgba(0, 30, 80, 0.85); /* 濃紺のフィルターで知性を演出 */
+            /* ネオンを引き立てる少し暗めの青紫フィルター */
+            background: linear-gradient(to bottom, rgba(0, 10, 30, 0.8), rgba(0, 20, 60, 0.9));
         }
 
         .hero__content { position: relative; z-index: 10; }
@@ -79,203 +126,273 @@
             background: linear-gradient(90deg, #ffd700, #ffaa00);
             color: #000;
             font-weight: 800;
-            padding: 0.5rem 2rem;
+            padding: 0.4rem 1.5rem;
             border-radius: 50px;
-            font-size: 1rem;
+            font-size: 0.9rem;
             display: inline-block;
             margin-bottom: 1.5rem;
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
         }
 
         .hero__title {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 800;
-            margin-bottom: 2rem;
-            line-height: 1.3;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 2.5rem;
+            line-height: 1.2;
+            text-shadow: 0 0 20px rgba(0, 68, 204, 0.5);
+            letter-spacing: -0.02em;
         }
 
         /* Price Box */
         .price-box {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 215, 0, 0.3); /* アクセントカラーの枠線 */
             display: inline-block;
-            padding: 2rem 4rem;
-            border-radius: 12px;
+            padding: 1.5rem 3rem;
+            border-radius: 8px;
             margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
-        .price-label { font-size: 1.1rem; font-weight: bold; opacity: 0.9; margin-bottom: 0.5rem; display: block; }
+        .price-label { font-size: 1rem; font-weight: bold; opacity: 0.9; margin-bottom: 0.2rem; display: block; }
         .price-val {
             font-family: var(--font-en);
-            font-size: 4rem;
+            font-size: 3.5rem;
             font-weight: 800;
             line-height: 1;
             color: var(--accent);
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
         }
-        .price-sub { font-size: 1rem; color: #fff; font-weight: normal; margin-left: 5px; }
-        .price-note { display: block; font-size: 0.8rem; margin-top: 10px; opacity: 0.8; }
+        .price-sub { font-size: 0.9rem; color: #fff; font-weight: normal; margin-left: 5px; }
+        .price-note { display: block; font-size: 0.75rem; margin-top: 8px; opacity: 0.8; }
 
         /* ====================================
-           Features Grid (Services)
+           Features Grid
            ==================================== */
         .features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: -50px;
+            gap: 1rem;
+            margin-top: -60px;
             position: relative;
             z-index: 20;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
         }
 
         .feature-card {
             background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            border-top: 4px solid var(--primary);
+            padding: 1.5rem;
+            border-radius: 6px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            border-top: 3px solid var(--primary);
             text-align: left;
         }
 
-        .feature-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
-        .feature-title { font-size: 1.2rem; font-weight: bold; margin-bottom: 0.5rem; color: var(--primary-dark); }
-        .feature-text { font-size: 0.9rem; color: var(--text-light); }
+        .feature-icon { font-size: 1.8rem; margin-bottom: 0.8rem; display: block; }
+        .feature-title { font-size: 1.1rem; font-weight: bold; margin-bottom: 0.4rem; color: var(--primary-dark); }
+        .feature-text { font-size: 0.85rem; color: var(--text-light); line-height: 1.5; }
 
         /* ====================================
            Main Content Layout
            ==================================== */
         .main-grid {
             display: grid;
-            grid-template-columns: 350px 1fr;
+            /* 左カラムを少し広げて横長レイアウトに対応 */
+            grid-template-columns: 450px 1fr;
             gap: 2rem;
             margin-bottom: 4rem;
         }
 
-        /* CEO Profile */
+        /* CEO Profile (横長・密集レイアウトに変更) */
         .ceo-section {
             background: white;
-            padding: 2rem;
+            padding: 1.5rem; /* 余白を詰める */
             border-radius: 8px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            height: fit-content;
+            /* 横並びにするためのFlex設定 */
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
         }
 
+        /* 写真コンテナ */
+        .ceo-visual {
+            flex: 0 0 160px; /* 幅を固定 */
+        }
         .ceo-img {
-            height: 300px;
+            width: 100%;
+            aspect-ratio: 3/4; /* 縦横比を維持 */
             border-radius: 4px;
-            margin-bottom: 1.5rem;
+            object-fit: cover;
             filter: contrast(1.1);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        }
+
+        /* 情報コンテナ（密集させる） */
+        .ceo-info-box {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .ceo-name { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.1rem; line-height: 1.2; }
+        .ceo-role { font-size: 0.75rem; color: var(--primary); font-weight: bold; display: block; margin-bottom: 0.8rem; }
+        
+        .ceo-msg {
+            font-size: 0.85rem; /* フォントを小さく */
+            line-height: 1.5; /* 行間を詰める */
+            text-align: justify;
+            margin-bottom: 0.8rem;
+            color: #444;
+        }
+        .ceo-msg p { margin-bottom: 0.5rem; } /* 段落間も詰める */
+        .ceo-msg strong { color: var(--primary-dark); }
+        
+        .ceo-univ {
+            font-size: 0.7rem;
+            color: #888;
+            border-top: 1px solid #eee;
+            padding-top: 8px;
+            font-weight: 500;
         }
         
-        .ceo-name { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.2rem; }
-        .ceo-role { font-size: 0.8rem; color: var(--primary); font-weight: bold; display: block; margin-bottom: 1rem; }
-        
-        .ceo-msg { font-size: 0.9rem; text-align: justify; margin-bottom: 1rem; }
-        
-        /* Plan & Team Area */
+        /* Right Column Areas */
         .content-area {
             display: flex;
             flex-direction: column;
             gap: 2rem;
         }
 
-        /* Plan Details Table */
+        .section-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+        }
+        .section-title span { margin-right: 8px; font-size: 1.2em; }
+
+        /* Plan Table */
         .plan-table {
             width: 100%;
             background: white;
             border-collapse: collapse;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            border-radius: 6px;
             overflow: hidden;
+            font-size: 0.9rem;
         }
-        .plan-table th { background: var(--primary-dark); color: white; padding: 1rem; text-align: left; width: 30%; font-size: 0.9rem; }
-        .plan-table td { padding: 1rem; border-bottom: 1px solid #eee; font-size: 0.9rem; }
+        .plan-table th { background: var(--primary-dark); color: white; padding: 0.8rem 1rem; text-align: left; width: 30%; font-weight: 500; }
+        .plan-table td { padding: 0.8rem 1rem; border-bottom: 1px solid #eee; }
         .check-mark { color: var(--primary); font-weight: bold; margin-right: 5px; }
 
         /* Members Grid */
         .members-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
+            gap: 0.8rem;
         }
         .member-card {
             background: white;
-            padding: 1rem;
+            padding: 1rem 0.5rem;
             text-align: center;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
         }
-        .member-img { width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 10px; border: 2px solid #eee; }
-        .member-name { font-size: 0.9rem; font-weight: bold; }
-        .member-role { font-size: 0.7rem; color: var(--primary); font-weight: bold; display: block; margin-bottom: 5px; }
-        .member-univ { font-size: 0.65rem; color: #999; border-top: 1px solid #eee; padding-top: 5px; }
+        .member-img { width: 60px; height: 60px; border-radius: 50%; margin: 0 auto 8px; border: 2px solid #f0f0f0; }
+        .member-name { font-size: 0.85rem; font-weight: bold; margin-bottom: 2px; }
+        .member-role { font-size: 0.65rem; color: var(--primary); font-weight: bold; display: block; margin-bottom: 5px; }
+        .member-univ { font-size: 0.6rem; color: #999; border-top: 1px solid #f4f4f4; padding-top: 4px; }
 
         /* Flow */
         .flow-steps {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 1rem;
-            margin: 2rem 0;
+            gap: 0.8rem;
         }
-        .step { background: white; padding: 1rem; border-radius: 4px; position: relative; text-align: center; border: 1px solid #eee; }
-        .step-num { display: block; font-family: var(--font-en); font-weight: bold; color: var(--primary); font-size: 1.2rem; margin-bottom: 0.5rem; }
-        .step-title { font-weight: bold; font-size: 0.9rem; margin-bottom: 0.5rem; }
-        .step-desc { font-size: 0.75rem; color: #666; }
+        .step { background: white; padding: 0.8rem; border-radius: 4px; text-align: center; border: 1px solid #eee; }
+        .step-num { display: block; font-family: var(--font-en); font-weight: 800; color: var(--primary); font-size: 1.1rem; margin-bottom: 0.3rem; }
+        .step-title { font-weight: bold; font-size: 0.85rem; margin-bottom: 0.3rem; }
+        .step-desc { font-size: 0.7rem; color: #666; line-height: 1.3; }
 
         /* FAQ & Legal */
-        .faq-box { background: white; padding: 2rem; border-radius: 8px; margin-bottom: 2rem; }
-        .faq-item { margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem; }
-        .faq-q { font-weight: bold; color: var(--primary-dark); margin-bottom: 0.5rem; display: flex; align-items: center; }
-        .faq-q::before { content: 'Q.'; margin-right: 10px; color: var(--accent); font-weight: 800; }
-        .faq-a { padding-left: 1.5rem; font-size: 0.9rem; color: var(--text-light); }
+        .faq-box { background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid #eee; }
+        .faq-item { margin-bottom: 1rem; border-bottom: 1px solid #f4f4f4; padding-bottom: 0.8rem; }
+        .faq-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .faq-q { font-weight: bold; color: var(--primary-dark); margin-bottom: 0.3rem; display: flex; align-items: center; font-size: 0.9rem; }
+        .faq-q::before { content: 'Q.'; margin-right: 8px; color: var(--accent); font-weight: 800; }
+        .faq-a { padding-left: 1.5rem; font-size: 0.85rem; color: var(--text-light); line-height: 1.5; }
 
-        .legal-box { font-size: 0.8rem; color: #888; background: #eef2f6; padding: 2rem; border-radius: 8px; }
-        .legal-row { display: flex; margin-bottom: 0.5rem; }
-        .legal-head { width: 120px; font-weight: bold; }
+        .legal-box { font-size: 0.75rem; color: #777; background: #eef2f6; padding: 1.5rem; border-radius: 6px; }
+        .legal-row { display: flex; margin-bottom: 0.4rem; }
+        .legal-head { width: 110px; font-weight: bold; color: #555; }
 
         /* CTA */
         .cta-section {
-            background: var(--primary-dark);
+            background: linear-gradient(135deg, var(--primary-dark), #001a50);
             color: white;
             text-align: center;
             padding: 3rem 1rem;
             border-radius: 12px;
-            margin-top: 2rem;
+            margin-top: 3rem;
+            box-shadow: 0 15px 30px rgba(0, 42, 128, 0.3);
         }
         .cta-btn {
             display: inline-block;
             background: var(--accent);
             color: #000;
-            padding: 1rem 3rem;
+            padding: 1rem 2.5rem;
             border-radius: 50px;
             font-weight: 800;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-top: 1.5rem;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+            transition: transform 0.2s;
         }
+        .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5); }
 
         /* Mobile */
         @media (max-width: 900px) {
-            .hero__title { font-size: 2rem; }
+            .navbar { padding: 0.8rem 1rem; }
+            .nav-menu { display: none; /* スマホでは一旦非表示（要ハンバーガーメニュー）*/ }
+            .hero { padding: 100px 0 80px; }
+            .hero__title { font-size: 2.2rem; }
             .price-box { padding: 1.5rem; width: 100%; }
             .price-val { font-size: 3rem; }
+            
+            /* スマホでのレイアウト調整 */
             .main-grid { grid-template-columns: 1fr; }
+            .ceo-section { flex-direction: column; } /* スマホでは縦並びに戻す */
+            .ceo-visual { flex: auto; width: 100%; max-width: 200px; margin: 0 auto 1rem; }
+            
             .members-grid { grid-template-columns: repeat(2, 1fr); }
-            .flow-steps { grid-template-columns: 1fr; }
-            .step::after { display: none; }
+            .flow-steps { grid-template-columns: 1fr; gap: 0.5rem; }
+            .plan-table th, .plan-table td { padding: 0.6rem 0.8rem; }
         }
     </style>
 </head>
 <body>
 
+    <nav class="navbar">
+        <div class="nav-logo">guide<span>tech</span>.</div>
+        <ul class="nav-menu">
+            <li><a href="about.html" class="nav-link">guidetechとは</a></li>
+            <li><a href="service.html" class="nav-link">事業内容</a></li>
+            <li><a href="works.html" class="nav-link">支援実績</a></li>
+            <li><a href="news.html" class="nav-link">お知らせ</a></li>
+            <li><a href="blog.html" class="nav-link">ブログ</a></li>
+        </ul>
+    </nav>
+
     <header class="hero">
         <div class="container hero__content">
             <div class="univ-badge">大阪大学工学部発 ベンチャー企業</div>
             <h1 class="hero__title">
-                「とりあえず」で作るなら、<br>
-                プロ品質を売り切りで。
+                とりあえず作るなら、
             </h1>
 
             <div class="price-box">
@@ -284,7 +401,7 @@
                 <span class="price-note">※維持費不要・完全売り切りモデル</span>
             </div>
 
-            <p style="font-size: 1.1rem; opacity: 0.9;">
+            <p style="font-size: 1rem; opacity: 0.9; font-weight: 500; letter-spacing: 0.05em;">
                 対面ヒアリング × 阪大工学部の技術力。<br>
                 文章作成もサーバー設定も、すべて丸投げで完成します。
             </p>
@@ -313,32 +430,37 @@
         <div class="main-grid">
             
             <aside class="ceo-section">
-                <span class="badge" style="margin-bottom: 1rem;">REPRESENTATIVE</span>
-                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800&auto=format&fit=crop" alt="CEO" class="ceo-img">
-                <h2 class="ceo-name">中嶋 〇〇</h2>
-                <span class="ceo-role">代表取締役 CEO / Lead Engineer</span>
-                
-                <div class="ceo-msg">
-                    <p><strong>「顔の見える距離で、技術を届けたい」</strong></p>
-                    <p>
-                        Web制作業界は今、「高額なコンサル」か「顔も見えない格安業者」の二極化が進んでいます。しかし、本当に必要なのは「安心して任せられる、身近なプロフェッショナル」ではないでしょうか。
-                    </p>
-                    <p>
-                        私たちは大阪大学工学部でシステムと論理を学ぶ学生チームです。工学的なアプローチで制作工程を効率化することで、コストを抑えつつ、対面でのコミュニケーションという「人」の部分に時間を割くモデルを実現しました。
-                    </p>
-                    <p>
-                        5万円という価格は安売りではありません。「まずは作ってみたい」という挑戦のハードルを下げるための、私たちの戦略的価格です。
-                    </p>
+                <div class="ceo-visual">
+                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800&auto=format&fit=crop" alt="CEO" class="ceo-img">
                 </div>
-                <div style="font-size: 0.8rem; color: #888; border-top: 1px solid #eee; padding-top: 10px;">
-                    2025年 大阪大学 工学部 応用理工学科 卒業予定
+                
+                <div class="ceo-info-box">
+                    <span class="badge" style="margin-bottom: 0.5rem; align-self: flex-start;">REPRESENTATIVE</span>
+                    <h2 class="ceo-name">中嶋 〇〇</h2>
+                    <span class="ceo-role">代表取締役 CEO / Lead Engineer</span>
+                    
+                    <div class="ceo-msg">
+                        <p><strong>「顔の見える距離で、技術を届けたい」</strong></p>
+                        <p>
+                            Web制作業界は今、「高額なコンサル」か「顔も見えない格安業者」の二極化が進んでいます。しかし、本当に必要なのは「安心して任せられる、身近なプロフェッショナル」ではないでしょうか。
+                        </p>
+                        <p>
+                            私たちは大阪大学工学部でシステムと論理を学ぶ学生チームです。工学的なアプローチで制作工程を効率化することで、コストを抑えつつ、対面でのコミュニケーションという「人」の部分に時間を割くモデルを実現しました。
+                        </p>
+                        <p style="margin-bottom: 0;">
+                            5万円という価格は安売りではありません。「まずは作ってみたい」という挑戦のハードルを下げるための、私たちの戦略的価格です。
+                        </p>
+                    </div>
+                    <div class="ceo-univ">
+                        2025年 大阪大学 工学部 応用理工学科 卒業予定
+                    </div>
                 </div>
             </aside>
 
             <main class="content-area">
                 
                 <div>
-                    <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">📦 5万円パッケージに含まれるもの</h2>
+                    <h2 class="section-title"><span>📦</span>5万円パッケージに含まれるもの</h2>
                     <table class="plan-table">
                         <tr>
                             <th>ページ構成</th>
@@ -368,7 +490,7 @@
                 </div>
 
                 <div>
-                    <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">🚀 納品までの流れ</h2>
+                    <h2 class="section-title"><span>🚀</span>納品までの流れ</h2>
                     <div class="flow-steps">
                         <div class="step">
                             <span class="step-num">01</span>
@@ -377,29 +499,29 @@
                         </div>
                         <div class="step">
                             <span class="step-num">02</span>
-                            <div class="step-title">対面打ち合わせ</div>
-                            <div class="step-desc"><strong>大阪近郊にて直接</strong>ご要望を伺います</div>
+                            <div class="step-title">対面ヒアリング</div>
+                            <div class="step-desc"><strong>大阪近郊にて直接</strong>伺います</div>
                         </div>
                         <div class="step">
                             <span class="step-num">03</span>
                             <div class="step-title">ご入金・着手</div>
-                            <div class="step-desc">銀行振込（前払い）にて制作開始</div>
+                            <div class="step-desc">銀行振込（前払い）にて開始</div>
                         </div>
                         <div class="step">
                             <span class="step-num">04</span>
                             <div class="step-title">制作・確認</div>
-                            <div class="step-desc">最短1週間でデモをご確認頂けます</div>
+                            <div class="step-desc">最短1週間でデモを確認</div>
                         </div>
                         <div class="step">
                             <span class="step-num">05</span>
                             <div class="step-title">納品</div>
-                            <div class="step-desc">サーバーへアップロードし完了</div>
+                            <div class="step-desc">サーバーへアップし完了</div>
                         </div>
                     </div>
                 </div>
 
                 <div>
-                    <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">👥 Engineering Team</h2>
+                    <h2 class="section-title"><span>👥</span>Engineering Team</h2>
                     <div class="members-grid">
                         <div class="member-card">
                             <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop" alt="Member" class="member-img">
@@ -429,7 +551,7 @@
                 </div>
 
                 <div class="faq-box">
-                    <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">❓ よくある質問</h2>
+                    <h2 class="section-title"><span>❓</span>よくある質問</h2>
                     <div class="faq-item">
                         <div class="faq-q">別途かかる費用はありますか？</div>
                         <div class="faq-a">ホームページの住所となる「ドメイン代」と「サーバー代」（年間数千円〜1万円程度）はお客様の実費負担となります。取得手続きは私たちが無料で代行いたします。</div>
@@ -440,7 +562,7 @@
                     </div>
                     <div class="faq-item">
                         <div class="faq-q">納品後の修正はできますか？</div>
-                        <div class="faq-a">本サービスは「売り切り型」のため、納品後の修正は基本的にお客様ご自身で行っていただきます（更新システムを入れる場合）。軽微なテキスト修正などは都度ご相談ください。</div>
+                        <div class="faq-a">本サービスは「売り切り型」のため、納品後の修正は基本的にお客様ご自身で行っていただきます。テキスト修正などの軽微な作業は都度ご相談ください（有償となる場合があります）。</div>
                     </div>
                 </div>
 
@@ -449,19 +571,19 @@
                     <div class="legal-row"><div class="legal-head">所在地</div><div>大阪府吹田市山田丘（大阪大学内）</div></div>
                     <div class="legal-row"><div class="legal-head">インボイス番号</div><div>T1234567890123（登録予定）</div></div>
                     <div class="legal-row"><div class="legal-head">事業内容</div><div>Webサイト制作、システム開発</div></div>
-                    <div style="margin-top: 10px; font-size: 0.7rem;">※特定商取引法に基づく表記は契約時に書面にて交付いたします。</div>
+                    <div style="margin-top: 8px; font-size: 0.7rem; opacity: 0.8;">※特定商取引法に基づく表記は契約時に書面にて交付いたします。</div>
                 </div>
 
             </main>
         </div>
 
         <div class="cta-section">
-            <h2 style="font-size: 2rem; font-weight: 800; margin-bottom: 1rem;">まずは「対面」でお話ししませんか？</h2>
-            <p>売り込みは致しません。あなたのビジネスにHPが必要かどうか、工学的な視点で診断します。</p>
-            <a href="mailto:info@guidetech.jp" class="cta-btn">無料相談・制作依頼はこちら</a>
+            <h2 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 1rem;">まずは「対面」でお話ししませんか？</h2>
+            <p style="font-size: 0.95rem; opacity: 0.9;">売り込みは致しません。あなたのビジネスにHPが必要かどうか、工学的な視点で診断します。</p>
+            <a href="https://docs.google.com/forms/d/e/xxxxx/viewform" class="cta-btn" target="_blank">無料相談・制作依頼はこちら</a>
         </div>
 
-        <footer style="text-align: center; padding: 2rem; color: #999; font-size: 0.8rem;">
+        <footer style="text-align: center; padding: 3rem 0; color: #999; font-size: 0.75rem; border-top: 1px solid #eee; margin-top: 3rem;">
             &copy; 2025 guidetech Inc. All Rights Reserved.
         </footer>
     </div>
