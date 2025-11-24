@@ -11,11 +11,11 @@
     
     <style>
         /* ====================================
-           Core Settings
+           Core Design System
            ==================================== */
         :root {
             --primary: #0044cc;
-            --primary-dark: #002a80; /* 添付画像のボタン色に近い紺色 */
+            --primary-dark: #002a80;
             --accent: #ffd700;
             --bg-body: #f4f7fa;
             --text-main: #222;
@@ -31,7 +31,7 @@
             background: var(--bg-body);
             line-height: 1.6;
             overflow-x: hidden;
-            padding-top: 80px; /* ヘッダーの高さ分あける */
+            padding-top: 80px;
         }
 
         a { text-decoration: none; color: inherit; transition: 0.3s; }
@@ -45,47 +45,42 @@
         }
 
         /* ====================================
-           Navigation (完全リニューアル：白背景・ボタン付き)
+           Navigation
            ==================================== */
         .navbar {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background: #ffffff; /* 白背景に変更 */
+            background: rgba(255, 255, 255, 0.95);
             padding: 0 5%;
             height: 80px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* 薄い影 */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
-        /* ロゴデザイン */
         .nav-logo {
             font-family: var(--font-en);
             font-weight: 800;
             font-size: 1.5rem;
-            color: #001a4d; /* 濃い紺色 */
+            color: #001a4d;
             display: flex;
             align-items: center;
             gap: 10px;
         }
-        .nav-logo-icon {
-            font-size: 1.8rem;
-            color: #001a4d;
-        }
+        .nav-logo span { color: var(--primary); }
 
-        /* メニューリンク */
         .nav-menu {
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
             align-items: center;
         }
 
         .nav-link {
-            color: #333; /* 黒文字 */
+            color: #333;
             font-size: 0.9rem;
             font-weight: 700;
             letter-spacing: 0.05em;
@@ -94,21 +89,16 @@
             color: var(--primary);
         }
 
-        /* お問い合わせボタン（画像のデザインを再現） */
         .nav-btn {
-            background-color: #1a2342; /* 画像に近い濃紺 */
+            background-color: #1a2342;
             color: white !important;
             padding: 0.8rem 2rem;
             font-weight: 700;
             font-size: 0.9rem;
-            border-radius: 2px; /* 角を少しだけ丸く */
+            border-radius: 2px;
             display: flex;
             align-items: center;
             gap: 10px;
-            transition: opacity 0.3s;
-        }
-        .nav-btn:hover {
-            opacity: 0.9;
         }
         .nav-btn::after {
             content: '→';
@@ -116,14 +106,14 @@
         }
 
         /* ====================================
-           Hero Section (Neon City - 修正済み)
+           Hero Section (Neon City - FINAL ATTEMPT)
            ==================================== */
         .hero {
             position: relative;
-            /* ▼▼▼ 背景画像を確実にネオン街に変更 ▼▼▼ */
-            background: url('https://images.unsplash.com/photo-1565626424178-37909945612d?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+            /* 【最終修正】シンプルで読み込みやすいネオンビル背景に変更 */
+            background: url('https://images.unsplash.com/photo-1558235285-d86411586526?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
             color: white;
-            padding: 140px 0 100px;
+            padding: 120px 0 80px;
             text-align: center;
         }
 
@@ -131,8 +121,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            /* 文字を見やすくするための暗いフィルター */
-            background: rgba(0, 5, 20, 0.7);
+            background: rgba(0, 5, 20, 0.7); /* フィルターの濃さを調整 */
         }
 
         .hero__content { position: relative; z-index: 10; }
@@ -159,7 +148,7 @@
         .price-box {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 215, 0, 0.5);
+            border: 1px solid rgba(255, 215, 0, 0.4);
             display: inline-block;
             padding: 1rem 3rem;
             border-radius: 8px;
@@ -177,101 +166,22 @@
         .price-val span { font-size: 1rem; color: #fff; }
 
         /* ====================================
-           Features & Plan
-           ==================================== */
-        .features {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            margin-top: -50px; /* ヒーローに重ねる */
-            position: relative;
-            z-index: 20;
-            margin-bottom: 4rem;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 6px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border-top: 3px solid var(--primary);
-        }
-        .feature-title { font-weight: bold; color: var(--primary-dark); margin-bottom: 0.5rem; font-size: 1.1rem; }
-        .feature-text { font-size: 0.85rem; color: #666; line-height: 1.6; }
-
-        /* Plan Table */
-        .section-header { font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--primary-dark); border-left: 5px solid var(--accent); padding-left: 15px; }
-
-        .plan-table {
-            width: 100%;
-            background: white;
-            border-collapse: collapse;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-            border-radius: 6px;
-            overflow: hidden;
-            margin-bottom: 4rem;
-        }
-        .plan-table th { background: var(--primary-dark); color: white; padding: 1rem; text-align: left; width: 25%; }
-        .plan-table td { padding: 1rem; border-bottom: 1px solid #eee; font-size: 0.95rem; }
-        .check { color: var(--primary); font-weight: bold; margin-right: 5px; }
-
-        /* Flow & Members (2 Columns) */
-        .info-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-bottom: 4rem;
-        }
-
-        .flow-list { counter-reset: flow; }
-        .flow-item {
-            position: relative;
-            padding-left: 3rem;
-            margin-bottom: 1.5rem;
-        }
-        .flow-item::before {
-            counter-increment: flow;
-            content: counter(flow);
-            position: absolute;
-            left: 0; top: 0;
-            width: 2rem; height: 2rem;
-            background: var(--primary);
-            color: white;
-            text-align: center;
-            line-height: 2rem;
-            border-radius: 50%;
-            font-weight: bold;
-            font-size: 1rem;
-        }
-        .flow-title { font-weight: bold; display: block; margin-bottom: 0.2rem; }
-        .flow-desc { font-size: 0.85rem; color: #666; }
-
-        /* Members */
-        .members-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-        .member-card { background: white; padding: 1rem; border-radius: 4px; border: 1px solid #eee; text-align: center; }
-        .member-img { width: 60px; height: 60px; border-radius: 50%; margin: 0 auto 10px; background: #eee; }
-        .member-name { font-size: 0.9rem; font-weight: bold; }
-        .member-role { font-size: 0.7rem; color: var(--primary); font-weight: bold; }
-
-
-        /* ====================================
-           CEO Section (配置変更済み：CTAの直上へ)
+           CEO Section (横長・高密度レイアウト)
            ==================================== */
         .ceo-section {
             background: white;
             border-radius: 8px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            /* CTAの上なのでマージンを調整 */
-            margin-bottom: 3rem; 
+            margin: -50px auto 3rem;
             position: relative;
             z-index: 20;
-            display: flex; /* 横並びレイアウト */
+            display: flex;
             overflow: hidden;
             border: 1px solid #eee;
         }
 
         .ceo-visual {
-            width: 320px; /* 写真エリアの幅 */
+            width: 320px;
             flex-shrink: 0;
             position: relative;
             background: #f0f0f0;
@@ -323,11 +233,44 @@
             text-align: justify;
         }
         .ceo-msg p { margin-bottom: 0.8rem; }
-        .ceo-msg p:last-child { margin-bottom: 0; }
+
 
         /* ====================================
-           CTA Section (一番下)
+           Other Sections (Features, Plan, Flow)
            ==================================== */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: -50px;
+            position: relative;
+            z-index: 20;
+            margin-bottom: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 6px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            border-top: 3px solid var(--primary);
+            text-align: left;
+        }
+
+        .section-header { font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--primary-dark); border-left: 5px solid var(--accent); padding-left: 10px; }
+        .plan-table { width: 100%; background: white; border-collapse: collapse; box-shadow: 0 3px 10px rgba(0,0,0,0.05); border-radius: 6px; overflow: hidden; margin-bottom: 4rem; }
+        .plan-table th { background: var(--primary-dark); color: white; padding: 1rem; text-align: left; width: 25%; }
+        .plan-table td { padding: 1rem; border-bottom: 1px solid #eee; font-size: 0.95rem; }
+        .check { color: var(--primary); font-weight: bold; margin-right: 5px; }
+
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 4rem; }
+        .members-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+        .member-card { background: white; padding: 1rem; border-radius: 4px; border: 1px solid #eee; text-align: center; }
+        .member-img { width: 60px; height: 60px; border-radius: 50%; margin: 0 auto 10px; background: #eee; }
+        .member-name { font-size: 0.9rem; font-weight: bold; }
+        .member-role { font-size: 0.7rem; color: var(--primary); font-weight: bold; }
+
+        /* CTA */
         .cta-section {
             background: linear-gradient(135deg, var(--primary-dark), #001a50);
             color: white;
@@ -350,20 +293,12 @@
 
         /* Mobile */
         @media (max-width: 800px) {
-            .navbar { padding: 0 1rem; height: 60px; }
-            body { padding-top: 60px; }
-            .nav-menu { display: none; } /* スマホは簡易表示 */
-            .nav-btn { padding: 0.5rem 1rem; font-size: 0.8rem; }
-            
-            .features { grid-template-columns: 1fr; margin-top: 2rem; }
+            .navbar .nav-menu { display: none; }
+            .features { grid-template-columns: 1fr; }
             .info-grid { grid-template-columns: 1fr; }
-            .hero__title { font-size: 2.2rem; }
-            
-            /* CEOセクションスマホ対応 */
             .ceo-section { flex-direction: column; }
-            .ceo-visual { width: 100%; height: 250px; }
+            .ceo-visual { width: 100%; height: 300px; }
             .ceo-header { flex-direction: column; gap: 0.5rem; }
-            .ceo-univ { margin-left: 0; }
         }
     </style>
 </head>
@@ -380,6 +315,7 @@
                 <li><a href="#" class="nav-link">支援実績</a></li>
                 <li><a href="#" class="nav-link">お知らせ</a></li>
                 <li><a href="#" class="nav-link">ブログ</a></li>
+                <li><a href="#members" class="nav-link">社員紹介</a></li>
             </ul>
             <a href="#cta" class="nav-btn">お問い合わせはこちら</a>
         </div>
@@ -464,7 +400,7 @@
             </div>
 
             <div>
-                <h2 class="section-header">Engineering Team</h2>
+                <h2 class="section-header" id="members">Engineering Team</h2>
                 <div class="members-grid">
                     <div class="member-card">
                         <div class="member-img"></div>
@@ -484,7 +420,7 @@
                     <div class="member-card">
                         <div class="member-img"></div>
                         <div class="member-name">高橋 大輔</div>
-                        <span class="member-role">Infra</span>
+                        <span class="member-role">Infrastructure</span>
                     </div>
                 </div>
             </div>
@@ -492,12 +428,12 @@
 
         <div class="ceo-section">
             <div class="ceo-visual">
-                <img src="ceo.jpg" alt="中嶋 〇〇" class="ceo-img">
+                <img src="ceo.jpg" alt="H.N" class="ceo-img">
             </div>
             <div class="ceo-content">
                 <span class="ceo-badge">REPRESENTATIVE</span>
                 <div class="ceo-header">
-                    <div class="ceo-name">中嶋 〇〇</div>
+                    <div class="ceo-name">H.N</div>
                     <span class="ceo-role">代表取締役 CEO / Lead Engineer</span>
                     <span class="ceo-univ">2025年 大阪大学 工学部 応用理工学科 卒業予定</span>
                 </div>
@@ -516,6 +452,13 @@
         </div>
 
         <footer style="text-align: center; padding: 3rem 0; color: #999; font-size: 0.75rem; border-top: 1px solid #eee; margin-top: 3rem;">
+            <div class="legal-box" style="margin-bottom: 2rem; background: transparent; padding: 0;">
+                <div style="display:inline-flex; flex-direction:column; align-items:flex-start; font-size:0.8rem; line-height:1.5; color:#666;">
+                    <div style="display:flex; gap:10px;"><div style="width:100px; font-weight:bold;">屋号</div><div>guidetech株式会社</div></div>
+                    <div style="display:flex; gap:10px;"><div style="width:100px; font-weight:bold;">所在地</div><div>大阪府吹田市山田丘（大阪大学内）</div></div>
+                    <div style="display:flex; gap:10px;"><div style="width:100px; font-weight:bold;">インボイス番号</div><div>T1234567890123（登録予定）</div></div>
+                </div>
+            </div>
             &copy; 2025 guidetech Inc. All Rights Reserved.
         </footer>
     </div>
