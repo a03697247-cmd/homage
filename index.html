@@ -1,27 +1,45 @@
+承知いたしました！
+ガラッと雰囲気を変えて、\*\*「青と白」\*\*を基調にした、**清潔感・信頼感・知性**溢れるデザインにリニューアルします。
+
+**変更のポイント：**
+
+1.  **カラーリング:** 漆黒から「白背景 × 濃紺（ネイビー） × 鮮やかな青」へ。工学部らしい「知的な爽やかさ」を出します。
+2.  **CEO経歴:** ご指定の通り「2025年大阪大学工学部応用理工学科 卒業予定」を記載。
+3.  **CEO写真:** 目黒蓮さんのような「シュッとした、クールで誠実なイケメン（風）」のフリー素材写真をチョイスしました。（※ご自身のお写真に変えるまでのプレースホルダーです）
+
+そのままコピペして使えるHTMLファイルです。
+
+### guidetech株式会社 | Academic Trust Ver. (Blue & White)
+
+```html
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>guidetech株式会社 | Logic & Creative</title>
-    <meta name="description" content="大阪大学工学部の知見を活かしたWebエンジニアリング企業。論理と技術でビジネスを加速させる、guidetech株式会社。">
+    <title>guidetech株式会社 | 論理と技術のWebエンジニアリング</title>
+    <meta name="description" content="大阪大学工学部の知見を基盤としたWebエンジニアリング企業。論理的アプローチでビジネス課題を解決するguidetech株式会社。">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
     
     <style>
         /* ====================================
            基本設定 (Variables & Reset)
            ==================================== */
         :root {
-            --bg-base: #121418;        /* 少し青みのあるダークグレー */
-            --bg-secondary: #1c1f26;   /* セクション用 */
-            --text-main: #ffffff;
-            --text-sub: #b0b5c0;
-            --accent: #007bff;         /* 信頼感のあるテックブルー */
-            --accent-light: #4dabf7;
+            --color-primary: #0044cc;   /* 知的なロイヤルブルー */
+            --color-secondary: #002a80; /* 深いネイビー */
+            --color-accent: #00bfff;    /* 明るいシアン（アクセント） */
+            --color-text: #333333;      /* 濃いグレー（文字色） */
+            --color-text-light: #666666;/* 薄いグレー */
+            --bg-body: #ffffff;         /* 白背景 */
+            --bg-light: #f4f8ff;        /* 薄い青の背景（セクション用） */
+            
             --font-jp: 'Noto Sans JP', sans-serif;
             --font-en: 'Montserrat', sans-serif;
+            
+            --shadow-card: 0 10px 30px rgba(0, 68, 204, 0.08); /* 青みのある柔らかい影 */
         }
 
         *, *::before, *::after {
@@ -32,8 +50,8 @@
 
         body {
             font-family: var(--font-jp);
-            background-color: var(--bg-base);
-            color: var(--text-main);
+            background-color: var(--bg-body);
+            color: var(--color-text);
             line-height: 1.8;
             overflow-x: hidden;
         }
@@ -43,9 +61,27 @@
         img { max-width: 100%; height: auto; display: block; }
 
         .container {
-            max-width: 1100px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 0 5%;
+        }
+
+        /* ボタンデザイン */
+        .btn {
+            display: inline-block;
+            background: var(--color-primary);
+            color: #fff;
+            padding: 0.8rem 2.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1rem;
+            box-shadow: 0 5px 15px rgba(0, 68, 204, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 68, 204, 0.4);
+            background: var(--color-secondary);
         }
 
         /* ====================================
@@ -55,37 +91,40 @@
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 1.2rem 5%;
-            background: rgba(18, 20, 24, 0.9);
+            padding: 1rem 5%;
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid #eee;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
         }
 
         .logo {
             font-family: var(--font-en);
-            font-weight: 900;
-            font-size: 1.4rem;
-            letter-spacing: 0.05em;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--color-secondary);
+            letter-spacing: -0.02em;
         }
-        .logo span { color: var(--accent-light); }
+        .logo span { color: var(--color-primary); }
 
-        .nav ul { display: flex; gap: 2rem; }
-        .nav a { font-size: 0.9rem; font-weight: 500; color: var(--text-sub); }
-        .nav a:hover { color: var(--text-main); }
-        .contact-btn {
-            background: var(--accent);
-            padding: 0.5rem 1.5rem;
-            border-radius: 4px;
-            font-weight: bold;
+        .nav ul { display: flex; gap: 2rem; align-items: center; }
+        .nav a { font-size: 0.95rem; font-weight: 500; color: var(--color-text); }
+        .nav a:hover { color: var(--color-primary); }
+        
+        .header-cta {
+            background: var(--color-primary);
             color: white !important;
+            padding: 0.5rem 1.2rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
         }
 
         /* ====================================
-           ヒーローセクション (写真背景)
+           ヒーローセクション
            ==================================== */
         .hero {
             position: relative;
@@ -93,123 +132,174 @@
             min-height: 600px;
             display: flex;
             align-items: center;
-            /* 背景画像（テック・オフィス・都市などのイメージ） */
-            background: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+            background: linear-gradient(135deg, #f0f4ff 0%, #ffffff 100%);
+            overflow: hidden;
         }
-
-        /* 画像を暗くするオーバーレイ */
+        
+        /* 背景の幾何学模様（テック感） */
         .hero::before {
             content: '';
             position: absolute;
-            inset: 0;
-            background: linear-gradient(to right, rgba(18, 20, 24, 0.9) 0%, rgba(18, 20, 24, 0.4) 100%);
+            top: -20%;
+            right: -10%;
+            width: 60%;
+            height: 80%;
+            background: radial-gradient(circle, rgba(0, 68, 204, 0.05) 0%, rgba(255,255,255,0) 70%);
+            z-index: 0;
         }
 
         .hero__content {
             position: relative;
             z-index: 1;
-            max-width: 800px;
+            max-width: 650px;
         }
 
-        .hero__tag {
+        .hero__badge {
             display: inline-block;
-            background: rgba(0, 123, 255, 0.2);
-            color: var(--accent-light);
-            padding: 0.3rem 1rem;
+            background: #eef4ff;
+            color: var(--color-primary);
+            padding: 0.4rem 1rem;
             border-radius: 50px;
             font-size: 0.85rem;
             font-weight: bold;
             margin-bottom: 1.5rem;
-            border: 1px solid rgba(0, 123, 255, 0.3);
+            letter-spacing: 0.05em;
         }
 
         .hero__title {
-            font-size: 3.5rem;
-            font-weight: 700;
-            line-height: 1.2;
+            font-size: 3.8rem;
+            font-weight: 800;
+            line-height: 1.15;
+            color: var(--color-secondary);
             margin-bottom: 1.5rem;
+            font-family: var(--font-en);
+        }
+        
+        .hero__title span {
+            color: var(--color-primary);
+            position: relative;
+        }
+        
+        /* マーカー線 */
+        .hero__title span::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: rgba(0, 191, 255, 0.2);
+            z-index: -1;
         }
 
         .hero__desc {
             font-size: 1.1rem;
-            color: #ddd;
+            color: var(--color-text-light);
             margin-bottom: 2.5rem;
-            max-width: 600px;
+            font-weight: 500;
         }
 
         /* ====================================
-           About (会社っぽい構成)
+           セクション共通
            ==================================== */
         .section { padding: 100px 0; }
-        .section-bg { background-color: var(--bg-secondary); }
+        .section-bg { background-color: var(--bg-light); }
 
-        .section__header { margin-bottom: 60px; text-align: center; }
+        .section__header { text-align: center; margin-bottom: 60px; }
         .section__title {
             font-family: var(--font-en);
-            font-size: 2.2rem;
+            font-size: 2.5rem;
+            color: var(--color-secondary);
+            font-weight: 800;
             margin-bottom: 0.5rem;
         }
-        .section__subtitle { color: var(--text-sub); font-size: 0.9rem; }
-
-        /* 画像付きのレイアウト */
-        .about-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
+        .section__subtitle {
+            color: var(--color-primary);
+            font-weight: bold;
+            letter-spacing: 0.1em;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 1rem;
         }
-        
-        .about-img img {
-            border-radius: 8px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        .section__desc {
+            max-width: 600px;
+            margin: 0 auto;
+            color: var(--color-text-light);
         }
-
-        .about-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.4;
-        }
-        .about-text p { color: var(--text-sub); margin-bottom: 1.5rem; }
 
         /* ====================================
-           代表者紹介 (CEO)
+           CEO Section (リクエスト対応)
            ==================================== */
-        .ceo-section {
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 3rem;
-            align-items: start;
-            background: rgba(255,255,255,0.03);
-            padding: 3rem;
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.05);
+        .ceo-container {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            background: #fff;
+            padding: 4rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-card);
+        }
+
+        .ceo-visual {
+            flex: 0 0 320px;
+            position: relative;
         }
 
         .ceo-img {
             width: 100%;
-            height: 300px;
+            border-radius: 12px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
             object-fit: cover;
-            border-radius: 8px;
-            /* フィルターをかけて少しカッコよく */
-            filter: grayscale(20%) contrast(110%);
+            aspect-ratio: 3/4;
+        }
+        
+        /* 写真の装飾 */
+        .ceo-visual::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 100px;
+            height: 100px;
+            background: var(--bg-light);
+            border-radius: 50%;
+            z-index: -1;
+        }
+        
+        .ceo-content { flex: 1; }
+
+        .ceo-role {
+            display: block;
+            color: var(--color-primary);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            font-family: var(--font-en);
+        }
+        
+        .ceo-name {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            color: var(--color-secondary);
+        }
+        
+        .ceo-bio {
+            background: var(--bg-light);
+            padding: 1rem 1.5rem;
+            border-left: 4px solid var(--color-primary);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--color-secondary);
         }
 
-        .ceo-info h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
-        .ceo-position { color: var(--accent-light); font-size: 0.9rem; font-weight: bold; margin-bottom: 1.5rem; display: block; }
-        .ceo-message {
-            font-size: 1rem;
-            color: var(--text-sub);
-            margin-bottom: 1.5rem;
-        }
-        .ceo-sign {
-            font-family: serif;
-            font-style: italic;
-            font-size: 1.2rem;
-            text-align: right;
+        .ceo-message p {
+            margin-bottom: 1rem;
+            color: var(--color-text-light);
         }
 
         /* ====================================
-           Works (カード型)
+           Works (カード)
            ==================================== */
         .works-grid {
             display: grid;
@@ -218,60 +308,95 @@
         }
 
         .work-card {
-            background: #181a1f;
-            border-radius: 8px;
+            background: #fff;
+            border-radius: 12px;
             overflow: hidden;
-            transition: transform 0.3s ease;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
         }
-        .work-card:hover { transform: translateY(-5px); }
+
+        .work-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 68, 204, 0.1);
+        }
 
         .work-thumb {
-            height: 200px;
-            background: #222;
+            height: 180px;
+            background: #eef4ff;
             overflow: hidden;
         }
-        .work-thumb img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-        .work-card:hover .work-thumb img { transform: scale(1.05); }
+        .work-thumb img { width: 100%; height: 100%; object-fit: cover; }
 
-        .work-content { padding: 1.5rem; }
-        .work-cat { font-size: 0.75rem; color: var(--accent-light); font-weight: bold; margin-bottom: 0.5rem; display: block; }
-        .work-title { font-size: 1.2rem; margin-bottom: 0.5rem; }
-        .work-desc { font-size: 0.9rem; color: var(--text-sub); }
+        .work-body { padding: 1.5rem; }
+        
+        .work-cat {
+            font-size: 0.75rem;
+            color: var(--color-primary);
+            font-weight: bold;
+            background: #eef4ff;
+            padding: 0.2rem 0.8rem;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 0.8rem;
+        }
+
+        .work-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--color-secondary);
+        }
+
+        .work-desc {
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+        }
 
         /* ====================================
-           会社概要 (Company Profile)
+           Company
            ==================================== */
-        .company-table {
+        .company-list dl {
+            display: flex;
+            flex-wrap: wrap;
+            border-top: 1px solid #eee;
+        }
+        .company-list div {
             width: 100%;
-            border-collapse: collapse;
-            font-size: 0.95rem;
+            display: flex;
+            border-bottom: 1px solid #eee;
+            padding: 1.5rem 0;
         }
-        .company-table th, .company-table td {
-            padding: 1.2rem;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            text-align: left;
+        .company-list dt {
+            width: 30%;
+            font-weight: bold;
+            color: var(--color-secondary);
         }
-        .company-table th { width: 30%; color: var(--text-sub); font-weight: normal; }
+        .company-list dd {
+            width: 70%;
+            color: var(--color-text-light);
+        }
 
         /* ====================================
            Footer
            ==================================== */
         .footer {
-            background: #0d0e11;
+            background: var(--color-secondary);
+            color: white;
             padding: 3rem 0;
             text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            font-size: 0.8rem;
-            color: #666;
         }
+        .footer p { opacity: 0.7; font-size: 0.8rem; }
 
         /* スマホ対応 */
         @media (max-width: 768px) {
-            .hero__title { font-size: 2.2rem; }
-            .about-layout, .ceo-section { grid-template-columns: 1fr; gap: 2rem; }
-            .nav { display: none; } /* 本来はハンバーガーメニュー */
-            .ceo-img { height: 250px; }
+            .hero__title { font-size: 2.5rem; }
+            .ceo-container { flex-direction: column; padding: 2rem; gap: 2rem; }
+            .ceo-visual { width: 100%; flex: auto; max-width: 300px; }
+            .nav { display: none; }
+            .company-list div { flex-direction: column; gap: 0.5rem; }
+            .company-list dt { width: 100%; }
+            .company-list dd { width: 100%; }
         }
     </style>
 </head>
@@ -281,68 +406,55 @@
         <div class="logo">guide<span>tech</span>.</div>
         <nav class="nav">
             <ul>
-                <li><a href="#about">About Us</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#ceo">Leadership</a></li>
                 <li><a href="#works">Works</a></li>
-                <li><a href="#company">Company</a></li>
-                <li><a href="#contact" class="contact-btn">Contact</a></li>
+                <li><a href="#contact" class="header-cta">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <section class="hero">
         <div class="container hero__content">
-            <span class="hero__tag">OSAKA UNIVERSITY ENGINEERING</span>
+            <span class="hero__badge">OSAKA UNIVERSITY ENGINEERING</span>
             <h1 class="hero__title">
-                ビジネスを、<br>
-                工学する。
+                Logic meets<br>
+                <span>Creativity.</span>
             </h1>
             <p class="hero__desc">
-                guidetechは、大阪大学工学部の知見を基盤としたWebエンジニアリング企業です。
-                感覚的なデザインではなく、論理とデータに基づいた「機能するWebサイト」を構築します。
+                ビジネスを、工学する。<br>
+                大阪大学工学部の論理的思考を実装したWebエンジニアリング。
             </p>
-            <a href="#contact" class="contact-btn" style="padding: 1rem 2rem; font-size: 1.1rem;">無料相談・お問い合わせ</a>
+            <a href="#contact" class="btn">プロジェクトを相談する</a>
         </div>
     </section>
 
-    <section id="about" class="section">
-        <div class="container about-layout">
-            <div class="about-text">
-                <span style="color: var(--accent-light); font-weight: bold;">OUR MISSION</span>
-                <h3>技術の解像度を上げ、<br>ビジネスの不確実性を減らす。</h3>
-                <p>
-                    Webサイト制作において、最も危険なのは「なんとなく」で作ることです。
-                    私たちは、お客様の抽象的なイメージを、エンジニアリングの視点で具体的な「仕様」へと変換します。
-                </p>
-                <p>
-                    最新の技術スタック、SEOのアルゴリズム、UI/UXの行動心理学。
-                    これらを組み合わせ、偶然の成功ではなく、計算された成果を提供することが私たちの使命です。
-                </p>
-            </div>
-            <div class="about-img">
-                <img src="https://images.unsplash.com/photo-1553877615-30c73e656fc3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Meeting">
-            </div>
-        </div>
-    </section>
-
-    <section class="section section-bg">
+    <section id="ceo" class="section">
         <div class="container">
             <div class="section__header">
-                <h2 class="section__title">LEADERSHIP</h2>
-                <p class="section__subtitle">代表者紹介</p>
+                <span class="section__subtitle">LEADERSHIP</span>
+                <h2 class="section__title">Representative</h2>
             </div>
 
-            <div class="ceo-section">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="CEO Face" class="ceo-img">
-                
-                <div class="ceo-info">
-                    <span class="ceo-position">代表取締役 / Lead Engineer</span>
-                    <h3>中嶋 〇〇</h3>
+            <div class="ceo-container">
+                <div class="ceo-visual">
+                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=987&auto=format&fit=crop" alt="CEO Portrait" class="ceo-img">
+                </div>
+                <div class="ceo-content">
+                    <span class="ceo-role">代表取締役 CEO / Lead Engineer</span>
+                    <h3 class="ceo-name">中嶋 〇〇</h3>
+                    
+                    <div class="ceo-bio">
+                        2025年 大阪大学 工学部 応用理工学科 卒業予定
+                    </div>
+
                     <div class="ceo-message">
                         <p>
-                            「良いモノを作れば売れる」という時代は終わりました。現代のWebには、美しさだけでなく、検索エンジンに見つけられる構造と、ユーザーを迷わせない導線が必要です。
+                            Web制作において最も重要なのは「美しさ」と「機能」のバランスです。私は大学で応用物理や数理工学に触れ、複雑な事象をシンプルにモデル化する思考を学びました。
                         </p>
                         <p>
-                            私は大阪大学工学部でシステムと論理を学びました。その知見をWeb制作に応用し、ただ作るだけでなく「事業を伸ばすための装置」としてのWebサイトを提供したいと考えています。学生ならではの柔軟性と、研究者気質の執着心で、貴社のプロジェクトに伴走します。
+                            「感覚」に頼りがちなクリエイティブの世界に、「工学」のメスを入れる。
+                            コードの品質、SEOの内部構造、UIの操作性。すべてを論理的に積み上げ、貴社のビジネスを確実に成長させるWebサイトを提供します。
                         </p>
                     </div>
                 </div>
@@ -350,88 +462,80 @@
         </div>
     </section>
 
-    <section id="works" class="section">
+    <section id="works" class="section section-bg">
         <div class="container">
             <div class="section__header">
-                <h2 class="section__title">SELECTED WORKS</h2>
-                <p class="section__subtitle">制作実績（一部抜粋）</p>
+                <span class="section__subtitle">PORTFOLIO</span>
+                <h2 class="section__title">Selected Works</h2>
+                <p class="section__desc">「白と青」の世界観で統一された、清潔感のある制作実績（ダミー）</p>
             </div>
 
             <div class="works-grid">
                 <div class="work-card">
                     <div class="work-thumb">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Work1">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Office">
                     </div>
-                    <div class="work-content">
-                        <span class="work-cat">CORPORATE SITE</span>
-                        <h4 class="work-title">株式会社NexStream 様</h4>
-                        <p class="work-desc">AIスタートアップの公式サイト。WebGLを使用した先進的な演出と、採用強化のための導線設計。</p>
-                    </div>
-                </div>
-                <div class="work-card">
-                    <div class="work-thumb">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Work2">
-                    </div>
-                    <div class="work-content">
-                        <span class="work-cat">SERVICE LP</span>
-                        <h4 class="work-title">MediLogic Analytics 様</h4>
-                        <p class="work-desc">医療データ解析サービスのLP。複雑な図解をアニメーションで見やすく表現しCV率を向上。</p>
+                    <div class="work-body">
+                        <span class="work-cat">CORPORATE</span>
+                        <h4 class="work-title">株式会社NexStream</h4>
+                        <p class="work-desc">AIコンサルティング企業の公式サイト。信頼感を醸成するブルー基調のデザイン。</p>
                     </div>
                 </div>
                 <div class="work-card">
                     <div class="work-thumb">
-                        <img src="https://images.unsplash.com/photo-1481487484168-9b930d5b7960?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Work3">
+                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80" alt="Medical">
                     </div>
-                    <div class="work-content">
-                        <span class="work-cat">E-COMMERCE</span>
-                        <h4 class="work-title">J-Crafts Market 様</h4>
-                        <p class="work-desc">越境ECサイト構築。Shopify Plusをカスタマイズし、海外決済と物流システムを連携。</p>
+                    <div class="work-body">
+                        <span class="work-cat">MEDICAL LP</span>
+                        <h4 class="work-title">MediLogic Analytics</h4>
+                        <p class="work-desc">医療データ解析サービスのLP。清潔感と安心感を最優先したUI設計。</p>
                     </div>
                 </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 3rem;">
-                <a href="#" style="border-bottom: 1px solid var(--accent-light); font-size: 0.9rem;">すべての実績を見る -></a>
+                <div class="work-card">
+                    <div class="work-thumb">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Dashboard">
+                    </div>
+                    <div class="work-body">
+                        <span class="work-cat">SYSTEM UI</span>
+                        <h4 class="work-title">TimeHub SaaS</h4>
+                        <p class="work-desc">勤怠管理システムのUIデザイン。視認性の高い配色で業務効率を改善。</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="company" class="section section-bg">
+    <section id="contact" class="section">
         <div class="container" style="max-width: 800px;">
             <div class="section__header">
-                <h2 class="section__title">COMPANY</h2>
-                <p class="section__subtitle">会社概要</p>
+                <span class="section__subtitle">INFORMATION</span>
+                <h2 class="section__title">Company Profile</h2>
             </div>
 
-            <table class="company-table">
-                <tr>
-                    <th>会社名</th>
-                    <td>guidetech株式会社</td>
-                </tr>
-                <tr>
-                    <th>代表者</th>
-                    <td>代表取締役　中嶋 〇〇</td>
-                </tr>
-                <tr>
-                    <th>所在地</th>
-                    <td>〒565-0871 大阪府吹田市山田丘（大阪大学吹田キャンパス近郊）</td>
-                </tr>
-                <tr>
-                    <th>事業内容</th>
-                    <td>
-                        Webサイトの企画・制作・運用<br>
-                        UI/UXデザイン設計<br>
-                        システム開発・DX支援
-                    </td>
-                </tr>
-                <tr>
-                    <th>主要取引先</th>
-                    <td>
-                        株式会社〇〇、一般社団法人〇〇、<br>
-                        国立大学法人 大阪大学 〇〇研究室
-                    </td>
-                </tr>
-            </table>
+            <div class="company-list">
+                <dl>
+                    <div>
+                        <dt>会社名</dt>
+                        <dd>guidetech株式会社</dd>
+                    </div>
+                    <div>
+                        <dt>代表者</dt>
+                        <dd>代表取締役 中嶋 〇〇</dd>
+                    </div>
+                    <div>
+                        <dt>所在地</dt>
+                        <dd>大阪府吹田市（大阪大学工学部 近郊）</dd>
+                    </div>
+                    <div>
+                        <dt>事業内容</dt>
+                        <dd>Webサイト制作 / UI・UXデザイン / システム開発</dd>
+                    </div>
+                </dl>
+            </div>
+            
+            <div style="text-align: center; margin-top: 4rem;">
+                <a href="mailto:info@example.com" class="btn">お問い合わせはこちら</a>
+            </div>
         </div>
     </section>
 
@@ -443,3 +547,4 @@
 
 </body>
 </html>
+```
